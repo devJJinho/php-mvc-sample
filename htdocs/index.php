@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -7,8 +7,7 @@
 	<title>Document</title>
 </head>
 <body>
-<h1> hi</h1>
-	<h1>
+	<h1> -->
 <?php
 	define('_ROOT',dirname(__FILE__)."/");
     define('_APP',_ROOT."application/");
@@ -25,10 +24,11 @@
 
     require_once(_CONFIG."lib.php");
     new Application();
+    //require_once(_CONTROLLER."main.php");
 ?>
-</h1>
+<!-- </h1>
 
 </body>
 </html>
-
+ -->
 

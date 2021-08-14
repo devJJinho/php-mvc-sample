@@ -1,6 +1,7 @@
 <?php
 Class Controller{
     var $param;
+    var $title;
     function __construct($param){
         $this->param=$param;
         $this->index();
@@ -22,6 +23,10 @@ Class Controller{
 
     function content(){
         require_once(_VIEW."{$this->param->page_type}.php");
+    }
+
+    function getTitle(){
+        $this->title=$this->param->title;
     }
 
 

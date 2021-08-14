@@ -6,18 +6,24 @@ Class Application{
         //get에서 param 분리
         $this->getParam();
         //param 값에 따라 contorller 호출 (autoload 사용)
+        
+        echo $this->param->page_type;
+        new login($this->param);
         new $this->param->page_type($this->param);
     }
     function getParam(){
-        $page_type=filter_input(INPUT_GET, 'page_type', FILTER_SANITIZE_STRING); //param 분리
-        if(!isset($page_type)){
-            //기본은 로그인
-            $page_type="main";
+        $get=$_GET['param'];
+        //$page_type=filter_input(INPUT_GET, 'page_type', FILTER_SANITIZE_STRING); //param 분리
+        if(isset($_GET['param'])){
+            $get=explode("/",$_GET['param']);
         }
+        //echo $get[0];
         $param=[];
-        $param['page_type']=$page_type;
+        $param['page_type']=isset($get[0])&&$get[0]!=''?$get[0]:"main";
         $param['action']=NULL;
         $this->param=(object)$param;
     }
 
 }
+
+?>
