@@ -7,6 +7,11 @@ spl_autoload_register(function ($className){
         case 'model' : $dir=_MODEL; break;
         default : $dir=_CONTROLLER; break;
     }
+    //불러오는건 php이지만 생성된는건 class
     require_once("{$dir}{$className}.php");
 });
+
+function setError($errorMSG){
+    new Error($errorMSG);
+}
 ?>

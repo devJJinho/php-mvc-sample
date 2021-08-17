@@ -6,9 +6,9 @@ Class Application{
         //get에서 param 분리
         $this->getParam();
         //param 값에 따라 contorller 호출 (autoload 사용)
-        
-        echo $this->param->page_type;
-        new login($this->param);
+        //echo $this->param->page_type;
+
+        //class 호출
         new $this->param->page_type($this->param);
     }
     function getParam(){
@@ -18,9 +18,10 @@ Class Application{
             $get=explode("/",$_GET['param']);
         }
         //echo $get[0];
+        //page_type/action/index
         $param=[];
         $param['page_type']=isset($get[0])&&$get[0]!=''?$get[0]:"main";
-        $param['action']=NULL;
+        $param['action']=isset($get[1])&&$get[1]!=''?$get[1]:NULL;
         $this->param=(object)$param;
     }
 

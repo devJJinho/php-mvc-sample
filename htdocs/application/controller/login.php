@@ -1,7 +1,12 @@
 <?php
-Class login extends Controller{
+Class Login extends Controller{
+    var $title;
     function basic(){
         ;
+    }
+    
+    function getTitle(){
+        $this->title="login";
     }
 }
 

@@ -1,13 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-</head>
-<body>
-	<h1> -->
 <?php
 	define('_ROOT',dirname(__FILE__)."/");
     define('_APP',_ROOT."application/");
@@ -21,14 +11,8 @@
     define('_IMG',_URL.'public/img/');
     define('_CSS',_URL.'public/common/css/');
     define('_JS',_URL.'public/common/js/');
+    define('_TITLE',"MVC Model");
 
     require_once(_CONFIG."lib.php");
     new Application();
-    //require_once(_CONTROLLER."main.php");
 ?>
-<!-- </h1>
-
-</body>
-</html>
- -->
-
