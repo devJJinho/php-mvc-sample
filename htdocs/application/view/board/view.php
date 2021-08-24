@@ -7,5 +7,9 @@
             echo "<li>{$each}</li>";
         }
     }
+
+    echo "<pre>";
+    echo print_r($this->res);
+    echo "</pre>";
     ?>
     </ul>

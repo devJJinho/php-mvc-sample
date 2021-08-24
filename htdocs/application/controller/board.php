@@ -7,9 +7,10 @@ Class Board extends Controller{
     }
 
     function view(){
-        $sql="select * from user";
-        $values=array();
+        $sql="SELECT * from user where userID=:id";
+        $values['id']="jhjeong710";
         $this->res=$this->db->fetchAll($sql,$values);
+        setError("dberror");
     }
     
     function getTitle(){

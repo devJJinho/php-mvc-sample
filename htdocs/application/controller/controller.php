@@ -6,8 +6,11 @@ Class Controller{
     var $action;
 
     function __construct($param){
+        if(isset($_POST['text']))
+            echo "post get";
         $this->param=$param;
-        $Model_name="Model_{$this->param->page_type}";
+        $Model_name="model_{$this->param->page_type}";
+        if(file_exists(_MODEL.$Model_name.".php")){
         try{
             $this->db=new $Model_name($this->param);
             echo "db ok";
@@ -15,6 +18,7 @@ Class Controller{
         catch(Exception $e){
             echo $e->getMessage();
             echo "db not ok";
+        }
         }
         //모델 이름 선택하기
         //여기서 db 연결하기

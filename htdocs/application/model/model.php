@@ -16,7 +16,7 @@
     // public function delete($table,$where); # 삭제 
     // public function bindParams($query,$args=array()); #쿼리 문자 바인드효과
     // }
-
+   
     class Model {
         var $db;
         var $column;
@@ -34,27 +34,35 @@
                     $this->action();
                 }
             }
-            catch(Exception $e){
-                echo $e->getMessage();
+            catch(PDOException $e){
+                setError("db 에러 발생");
             }
         }
-
         function query($query,$values=false){
             try{
                 $res=$this->db->prepare($query);
                 if($values!=false){
-                foreach($values as $value){
-                    $res->bindValue($value, $values[$value]);
+                foreach($values as $key => $value){
+                    echo "**";
+                    echo $key;
+                    echo $value;
+                    echo "**";
+                    $res->bindParam(":".$key,$value);
                 }
                 }
                 $res->execute();
                 return $res;
             }
             catch(Exception $e){
+                echo "errorrrrr";
+                echo $e->getMessage();
                 echo "<pre>";
                 echo $query;
                 echo "</pre>";
             }
+        }
+        public function insert($sql,$values=false){
+            $this->query($sql,$values);
         }
 
         public function fetch($sql,$values=false){
